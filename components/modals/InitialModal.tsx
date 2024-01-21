@@ -21,7 +21,7 @@ import {
 	FormLabel,
 	FormMessage,
 } from '@/components/ui/form';
-import { Input } from '../ui/input';
+import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
 import  { FileUpload }  from '@/components/upload/FileUpload';
@@ -31,6 +31,9 @@ const formSchema = z.object({
 	name: z.string().min(1, {
 		message: 'Server name is required',
 	}),
+	imageUrl: z.string().min(1, {
+		message: 'Server image is required',
+	})
 });
 
 export const InitialModal = () => {
@@ -53,7 +56,7 @@ export const InitialModal = () => {
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
 		try {
-			await axios.post('/api/servers/', values);
+			axios.post("/api/servers", values);
 
 			form.reset();
 			router.refresh();
