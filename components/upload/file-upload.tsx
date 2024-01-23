@@ -24,6 +24,21 @@ export const FileUpload = ({ endpoint, onChange, value }: FileUploadProps) => {
 					fill
 					alt='Upload'
 					className='rounded-full'/>
+				<button
+				type='button'
+				onClick={() => onChange('')}
+				className='
+				bg-rose-500 
+				text-white 
+				p-1 
+				rounded-full 
+				absolute 
+				top-0 
+				right-0 
+				shadow-sm' 
+				>
+					<X className='h-4 w-4'/>
+				</button>
 			</div>
 		)
 	}
