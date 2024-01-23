@@ -9,7 +9,7 @@ interface ModalStore {
     onClose: () => void;
 }
 
-export const useModalStore = create<ModalStore>((set) => ({
+export const useModal = create<ModalStore>((set) => ({
     type: null,
     isOpen: false,
     onOpen: (type) => set({ type, isOpen: true }),

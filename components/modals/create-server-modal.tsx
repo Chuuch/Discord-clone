@@ -27,7 +27,7 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { FileUpload } from '@/components/upload/file-upload';
 import { useRouter } from 'next/navigation';
-import { useModalStore } from '@/hooks/use-modal-store';
+import { useModal } from '@/hooks/use-modal-store';
 
 const formSchema = z.object({
 	name: z.string().min(1, {
@@ -39,7 +39,7 @@ const formSchema = z.object({
 });
 
 export const CreateServerModal = () => {
-	const { isOpen, onClose, type } = useModalStore();
+	const { isOpen, onClose, type } = useModal();
 	const router = useRouter();
 
 	const isModalOpen = isOpen && type === 'createServer';
@@ -60,6 +60,7 @@ export const CreateServerModal = () => {
 
 			form.reset();
 			router.refresh();
+			onClose();
 		} catch (error) {
 			console.log(error);
 			
