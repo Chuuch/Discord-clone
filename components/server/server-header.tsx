@@ -9,7 +9,15 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown, LogOut, PlusCircle, Settings, Trash, UserPlus, Users } from 'lucide-react';
+import {
+	ChevronDown,
+	LogOut,
+	PlusCircle,
+	Settings,
+	Trash,
+	UserPlus,
+	Users,
+} from 'lucide-react';
 import { useModal } from '@/hooks/use-modal-store';
 
 interface ServerHeaderProps {
@@ -77,7 +85,7 @@ export const ServerHeader = ({ server, role }: ServerHeaderProps) => {
 				)}
 				{isAdmin && (
 					<DropdownMenuItem
-					    onClick={() => onOpen('editServer', { server })}
+						onClick={() => onOpen('editServer', { server })}
 						className="
                         px-3
                         py-2
@@ -90,6 +98,7 @@ export const ServerHeader = ({ server, role }: ServerHeaderProps) => {
 				)}
 				{isAdmin && (
 					<DropdownMenuItem
+					    onClick={() => onOpen('members', { server })}
 						className="
                         px-3
                         py-2
@@ -112,10 +121,8 @@ export const ServerHeader = ({ server, role }: ServerHeaderProps) => {
 						<PlusCircle className="h-4 w-4 ml-auto" />
 					</DropdownMenuItem>
 				)}
-                {isModerator && (
-                    <DropdownMenuSeparator />
-                )}
-                {isAdmin && (
+				{isModerator && <DropdownMenuSeparator />}
+				{isAdmin && (
 					<DropdownMenuItem
 						className="
                         text-rose-500
@@ -128,7 +135,7 @@ export const ServerHeader = ({ server, role }: ServerHeaderProps) => {
 						<Trash className="h-4 w-4 ml-auto" />
 					</DropdownMenuItem>
 				)}
-                {!isAdmin && (
+				{!isAdmin && (
 					<DropdownMenuItem
 						className="
                         text-rose-500
