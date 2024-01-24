@@ -3,6 +3,7 @@
 import axios from 'axios';
 import qs from 'query-string';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import {
 	Dialog,
@@ -15,11 +16,10 @@ import {
 
 import { useModal } from '@/hooks/use-modal-store';
 import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
 
 export const DeleteChannelModal = () => {
-	const router = useRouter();
 	const { isOpen, onClose, type, data } = useModal();
+	const router = useRouter();
 
 	const isModalOpen = isOpen && type === 'deleteChannel';
 	const { server, channel } = data;
