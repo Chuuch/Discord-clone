@@ -1,4 +1,5 @@
 'use client';
+
 import axios from 'axios';
 import qs from 'query-string';
 import { useState } from 'react';
@@ -33,7 +34,7 @@ export const DeleteChannelModal = () => {
 				query: {
 					serverId: server?.id,
 				},
-			});
+			})
 
 			await axios.delete(url);
 
