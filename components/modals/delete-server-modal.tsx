@@ -22,7 +22,6 @@ export const DeleteServerModal = () => {
 	const isModalOpen = isOpen && type === 'deleteServer';
 	const { server } = data;
 
-	const [copied, setCopied] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
 
 	const onClick = async () => {
