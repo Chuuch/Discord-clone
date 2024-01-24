@@ -1,4 +1,6 @@
-import { Hash, Menu } from "lucide-react";
+import { Hash } from "lucide-react";
+import { MobileToggle } from "@/components/mobile-toggle/mobile-toggle";
+import { UserAvatar } from "../user/user-avatar";
 
 interface ChatHeaderProps {
     serverId: string;
@@ -7,7 +9,7 @@ interface ChatHeaderProps {
     imageUrl?: string;
 }
 
-const ChatHeader = ({
+export const ChatHeader = ({
     serverId,
     name,
     type,
@@ -24,7 +26,7 @@ const ChatHeader = ({
         border-neutral-200 
         dark:border-neutral-800 
         border-b-2">
-            <Menu />
+           <MobileToggle serverId={serverId}/>
             {type === 'channel' && (
                 <Hash className="
                 w-5
@@ -33,6 +35,12 @@ const ChatHeader = ({
                 dark:text-zinc-400
                 mr-2"/>
             )}
+            {type === 'conversation' && (
+                <UserAvatar 
+                    src={imageUrl}
+                    classname="h-8 w-8 md:h-8 md:w-8 mr-2"
+                />
+            )}
             <p className="
             font-semibold 
             text-md 
@@ -40,8 +48,12 @@ const ChatHeader = ({
             dark:text-white">
                 {name}
             </p>
+            {/* <div className="ml-auto flex place-items-center">
+                {type === 'conversation' && (
+                    <ChatVideoButton />
+                )}
+                <SocketIndicator />
+            </div> */}
         </div>
      );
 }
- 
-export default ChatHeader;
