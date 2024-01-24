@@ -14,12 +14,10 @@ import {
 
 import { useModal } from '@/hooks/use-modal-store';
 import { Button } from '@/components/ui/button';
-import { useParams, useRouter } from 'next/navigation';
-import { channel } from 'diagnostics_channel';
+import { useRouter } from 'next/navigation';
 
 export const DeleteChannelModal = () => {
 	const router = useRouter();
-	const params = useParams();
 	const { isOpen, onClose, type, data } = useModal();
 
 	const isModalOpen = isOpen && type === 'deleteChannel';
@@ -33,7 +31,7 @@ export const DeleteChannelModal = () => {
 			const url = qs.stringifyUrl({
 				url: `/api/channels/${channel?.id}`,
 				query: {
-					serverId: params?.serverId,
+					serverId: server?.id,
 				},
 			});
 
@@ -41,7 +39,7 @@ export const DeleteChannelModal = () => {
 
 			onClose();
 			router.refresh();
-			router.push(`/servers/${params?.serverId}`);
+			router.push(`/servers/${server?.id}`);
 		} catch (error) {
 			console.log(error);
 		} finally {
