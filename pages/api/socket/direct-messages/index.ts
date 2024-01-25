@@ -13,11 +13,11 @@ export default async function handler(
 
     try {
         const profile = await currentProfilePages(req);
-        const { content, fileUrl } = await req.body;
-        const { conversationId } = req.body;
+        const { content, fileUrl } = req.body;
+        const { conversationId } = req.query;
 
         if (!profile) {
-            return res.status(404).json({ error: 'Unauthorized' });
+            return res.status(401).json({ error: 'Unauthorized' });
         }
 
         if (!conversationId) {
@@ -65,7 +65,7 @@ export default async function handler(
         const member = conversation.memberOne.profileId === profile.id ? conversation.memberOne : conversation.memberTwo
 
         if (!member) {
-            return res.status(404).json({ error: 'Member Not Found' });
+            return res.status(404).json({ message: 'Member Not Found' });
         }
 
         const message = await db.directMessage.create({
