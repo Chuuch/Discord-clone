@@ -22,7 +22,7 @@ import {
 	FormItem,
 } from '@/components/ui/form';
 
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/button';
 import { FileUpload } from '@/components/upload/file-upload';
 import { useRouter } from 'next/navigation';
 import { useModal } from '@/hooks/use-modal-store';
