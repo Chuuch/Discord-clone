@@ -12,7 +12,7 @@ export const UserAvatar = ({ src, classname }: UserAvatarProps) => {
             'h-7 w-7 md:h-10 md:w-10',
             classname
         )}>
-            <AvatarImage src={src} className={classname} />
+            <AvatarImage src={src}/>
         </Avatar>
     )
 }
