@@ -5,6 +5,7 @@ import { currentProfile } from '@/lib/current-profile';
 import { db } from '@/lib/db';
 import { redirectToSignIn } from '@clerk/nextjs';
 import { ChannelType } from '@prisma/client';
+import { MediaRoom } from '@/components/video/media-room';
 import { redirect } from 'next/navigation';
 
 interface ChannelIdPageProps {
@@ -78,6 +79,20 @@ const ChannelIdPage = async ({ params }: ChannelIdPageProps) => {
 						}}
 					/>
 				</>
+			)}
+			{channel.type === ChannelType.AUDIO && (
+				<MediaRoom
+					chatId={channel.id}
+					video={false}
+					audio={true}
+					/>
+			)}
+			{channel.type === ChannelType.VIDEO && (
+				<MediaRoom
+					chatId={channel.id}
+					video={false}
+					audio={true}
+					/>
 			)}
 		</div>
 	);
