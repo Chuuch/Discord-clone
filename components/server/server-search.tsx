@@ -17,8 +17,7 @@ interface ServerSearchProps {
 	data: {
 		label: string;
 		type: 'channel' | 'member';
-		data:
-			| {
+		data: {
 					icon: React.ReactNode;
 					name: string;
 					id: string;
