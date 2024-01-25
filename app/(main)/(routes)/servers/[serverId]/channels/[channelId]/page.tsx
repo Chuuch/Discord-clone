@@ -66,7 +66,7 @@ const ChannelIdPage = async ({ params }: ChannelIdPageProps) => {
 							serverId: channel.serverId,
 						}}
 						paramKey="channelId"
-						parmValue={channel.id}
+						paramValue={channel.id}
 					/>
 					<ChatInput
 						name={channel.name}
