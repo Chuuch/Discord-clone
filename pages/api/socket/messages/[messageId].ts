@@ -19,7 +19,7 @@ export default async function handler(
 		const { content } = req.body;
 
 		if (!profile) {
-			return res.status(404).json({ error: 'Unauthorized' });
+			return res.status(401).json({ error: 'Unauthorized' });
 		}
 
 		if (!serverId) {
