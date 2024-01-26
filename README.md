@@ -1,5 +1,8 @@
 # Full-Stack Discord Clone
 
+![Screenshot 2024-01-26 at 06 17 59](https://github.com/Chuuch/discord-clone/assets/78451418/6af1acf4-22ca-4876-96aa-eec45a95af63)
+
+
 ## Overview
 
 This project is a Full-Stack Discord clone built with modern web technologies, providing a seamless real-time communication experience. The application is developed using Next.js, TypeScript, React, Tailwind CSS, Shadcn, Socket.IO, Prisma, Clerk, MySQL, Zustand, UploadThing, and Livekit.
